@@ -178,7 +178,7 @@ public class MainEditor extends javax.swing.JFrame {
 
         jLabel8.setText("Palette file :");
 
-        jTextField8.setText("D:\\SEGADEV\\GITHUB\\SF2DISASM\\disasm\\data\\graphics\\tech\\displayinitpalette.bin");
+        jTextField8.setText("..\\tech\\displayinitpalette.bin");
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
@@ -199,16 +199,16 @@ public class MainEditor extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("<html>Select a directory with \"mapspriteXXX-Y.png\" files.<br>Required PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
+        jLabel2.setText("<html>Select a directory with \"mapspriteXXX.bin\" files.<br/>Typical disassembly path : data/graphics/mapsprites/</html>");
 
-        jTextField9.setText("D:\\SEGADEV\\GITHUB\\SF2DISASM\\disasm\\data\\graphics\\mapsprites\\");
+        jTextField9.setText(".\\");
             jTextField9.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     jTextField9ActionPerformed(evt);
                 }
             });
 
-            jLabel10.setText("Graphics dir :");
+            jLabel10.setText("Directory :");
 
             jButton15.setText("File...");
             jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +233,7 @@ public class MainEditor extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                             .addComponent(jLabel10)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton15))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -288,7 +288,7 @@ public class MainEditor extends javax.swing.JFrame {
                     }
                 });
 
-                jLabel3.setText("<html>Select a directory with \"mapspriteXXX-Y.png\" files.<br>Required PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.<br>Base path can end with an optional filename prefix.</html>");
+                jLabel3.setText("<html>Select a directory with \"mapspriteXXX-Y.png\" files.<br>Required PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
 
                 javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
                 jPanel9.setLayout(jPanel9Layout);
@@ -350,11 +350,11 @@ public class MainEditor extends javax.swing.JFrame {
                     }
                 });
 
-                jLabel1.setText("<html>Select a directory to create new \"mapspriteXXX-Y.png\" files.<br>Exported PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.<br>Base path can end with an optional filename prefix.</html>");
+                jLabel1.setText("<html>Select a directory to create new \"mapspriteXXX.bin\" files.<br>Exported PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
 
-                jLabel14.setText("Icons file :");
+                jLabel14.setText("Directory :");
 
-                jTextField13.setText("D:\\SEGADEV\\GITHUB\\SF2DISASM\\disasm\\data\\graphics\\mapsprites\\");
+                jTextField13.setText(".\\");
                     jTextField13.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                             jTextField13ActionPerformed(evt);
@@ -378,7 +378,7 @@ public class MainEditor extends javax.swing.JFrame {
                                 .addGroup(jPanel11Layout.createSequentialGroup()
                                     .addComponent(jLabel14)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
                                     .addGap(10, 10, 10)
                                     .addComponent(jButton20))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
@@ -398,7 +398,7 @@ public class MainEditor extends javax.swing.JFrame {
                             .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton2)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(17, Short.MAX_VALUE))
+                            .addContainerGap(31, Short.MAX_VALUE))
                     );
 
                     jTabbedPane2.addTab("Disassembly", jPanel11);
@@ -426,7 +426,7 @@ public class MainEditor extends javax.swing.JFrame {
                             }
                         });
 
-                        jLabel9.setText("<html>Select a directory to create new \"mapspriteXXX-Y.png\" files.<br>Exported PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.<br>Base path can end with an optional filename prefix.</html>");
+                        jLabel9.setText("<html>Select a directory to create new \"mapspriteXXX-Y.png\" files.<br>Exported PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
 
                         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
                         jPanel14.setLayout(jPanel14Layout);
