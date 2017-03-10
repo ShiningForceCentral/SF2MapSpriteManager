@@ -5,21 +5,15 @@
  */
 package com.sfc.sf2.mapsprite.io;
 
-import com.sfc.sf2.graphics.GraphicsManager;
 import com.sfc.sf2.graphics.Tile;
 import com.sfc.sf2.graphics.compressed.BasicGraphicsDecoder;
 import com.sfc.sf2.graphics.compressed.BasicGraphicsEncoder;
-import com.sfc.sf2.graphics.uncompressed.UncompressedGraphicsDecoder;
-import com.sfc.sf2.graphics.uncompressed.UncompressedGraphicsEncoder;
 import com.sfc.sf2.mapsprite.MapSprite;
-import static com.sfc.sf2.mapsprite.io.PngManager.writePngFile;
 import java.awt.Color;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,8 +64,7 @@ public class DisassemblyManager {
                 byte[] newGraphicsFileBytes = BasicGraphicsEncoder.getNewGraphicsFileBytes(); 
                 Path graphicsFilePath = Paths.get(filePath);
                 Files.write(graphicsFilePath,newGraphicsFileBytes);
-                System.out.println(newGraphicsFileBytes.length + " bytes into " + graphicsFilePath);
-                System.out.println("com.sfc.sf2.mapsprite.io.DisassemblyManager.writeFiles() - File written.");                
+                System.out.println(newGraphicsFileBytes.length + " bytes into " + graphicsFilePath);                
             }
         } catch (Exception ex) {
             Logger.getLogger(DisassemblyManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,7 +80,11 @@ public class DisassemblyManager {
             Path path = Paths.get(filePath);
             if(path.toFile().exists()){
                 byte[] data = Files.readAllBytes(path);
-                tiles = BasicGraphicsDecoder.decodeBasicGraphics(data, palette);
+                if(data.length>2){
+                    tiles = BasicGraphicsDecoder.decodeBasicGraphics(data, palette);
+                }else{
+                    System.out.println("com.sfc.sf2.mapsprite.io.DisassemblyManager.parseGraphics() - File ignored because of too small length (must be a dummy file) " + data.length + " : " + filePath);
+                }
             }            
         }catch(Exception e){
              System.err.println("com.sfc.sf2.mapsprite.io.DisassemblyManager.parseGraphics() - Error while parsing graphics data : "+e);

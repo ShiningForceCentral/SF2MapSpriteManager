@@ -612,7 +612,7 @@ public class MainEditor extends javax.swing.JFrame {
         int returnVal = jFileChooser2.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = jFileChooser2.getSelectedFile();
-            jTextField9.setText(file.getAbsolutePath());
+            jTextField9.setText(file.getAbsolutePath()+System.getProperty("file.separator"));
         }
     }//GEN-LAST:event_jButton15ActionPerformed
 
@@ -624,7 +624,7 @@ public class MainEditor extends javax.swing.JFrame {
         int returnVal = jFileChooser2.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = jFileChooser2.getSelectedFile();
-            jTextField13.setText(file.getAbsolutePath());
+            jTextField13.setText(file.getAbsolutePath()+System.getProperty("file.separator"));
         }
     }//GEN-LAST:event_jButton20ActionPerformed
 
