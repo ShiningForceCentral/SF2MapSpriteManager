@@ -89,7 +89,7 @@ public class PngManager {
                         int tileId = 0;
                         for(int x=0;x<imageWidth;x+=8){
                             for(int y=0;y<imageHeight;y+=8){
-                                System.out.println("Building tile from coordinates "+x+":"+y);
+                                //System.out.println("Building tile from coordinates "+x+":"+y);
                                 Tile tile = new Tile();
                                 tile.setId(tileId);
                                 tile.setPalette(palette);
@@ -104,7 +104,7 @@ public class PngManager {
                                         }
                                     }
                                 }
-                                System.out.println(tile);
+                                //System.out.println(tile);
                                 tiles[tileId] = tile;   
                                 tileId++;
                             }
@@ -139,7 +139,7 @@ public class PngManager {
     
     public static void exportPng(MapSprite[] mapSprites, String basepath){
         try {
-            System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - Exporting PNG files ...");
+            //System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - Exporting PNG files ...");
             for(MapSprite mapSprite : mapSprites){
                 String index = String.format("%03d", mapSprite.getIndex());
                 String filePath0 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y.png", index+"-0.png");
@@ -147,7 +147,7 @@ public class PngManager {
                 String filePath1 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y.png", index+"-1.png");
                 writePngFile(Arrays.copyOfRange(mapSprite.getTiles(), 9, 18),filePath1);                
             }
-            System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - PNG files exported.");
+            //System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - PNG files exported.");
         } catch (Exception ex) {
             Logger.getLogger(PngManager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -157,12 +157,12 @@ public class PngManager {
     
     public static void writePngFile(Tile[] tiles, String filepath){
         try {
-            System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - Exporting PNG file ...");
+            //System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - Exporting PNG file ...");
             BufferedImage image = MapSpriteLayout.buildImage(tiles, 3);
             File outputfile = new File(filepath);
-            System.out.println("File path : "+outputfile.getAbsolutePath());
+            //System.out.println("File path : "+outputfile.getAbsolutePath());
             ImageIO.write(image, "png", outputfile);
-            System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - PNG file exported.");
+            System.out.println("PNG file exported : " + outputfile.getAbsolutePath());
         } catch (Exception ex) {
             Logger.getLogger(PngManager.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -14,6 +14,9 @@ import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.io.File;
 import java.io.PrintStream;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JTextArea;
 import javax.swing.JViewport;
@@ -39,12 +42,24 @@ public class MainEditor extends javax.swing.JFrame {
     public MainEditor() {
         initComponents();
         initConsole(jTextArea1);
+        System.setProperty("java.util.logging.SimpleFormatter.format", 
+            "%2$s - %5$s%6$s%n");        
+        initLogger("com.sfc.sf2.graphics", Level.WARNING);        
         File workingDirectory = new File(MainEditor.class.getProtectionDomain().getCodeSource().getLocation().getPath());
         System.setProperty("user.dir", workingDirectory.getParent());
         jFileChooser1.setCurrentDirectory(workingDirectory);
         jFileChooser2.setCurrentDirectory(workingDirectory);       
     }
+    
+    private void initLogger(String name, Level level){
+        Logger log = Logger.getLogger(name);
+        log.setUseParentHandlers(false);
+        log.setLevel(level);
+        ConsoleHandler ch = new ConsoleHandler();
+        ch.setLevel(level);        
+        log.addHandler(ch);                
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
