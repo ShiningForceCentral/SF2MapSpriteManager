@@ -9,6 +9,7 @@ import com.sfc.sf2.graphics.GraphicsManager;
 import com.sfc.sf2.graphics.Tile;
 import com.sfc.sf2.mapsprite.io.DisassemblyManager;
 import com.sfc.sf2.mapsprite.io.PngManager;
+import com.sfc.sf2.mapsprite.io.GifManager;
 import com.sfc.sf2.palette.PaletteManager;
 import java.awt.Color;
 
@@ -79,5 +80,22 @@ public class MapSpriteManager {
         System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.exportPng() - Exporting PNG ...");
         PngManager.exportPng(mapSprites, basepath);
         System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.exportPng() - PNG exported.");       
+    }
+    
+    public void importGif(String basepath){
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.importGif() - Importing GIF ...");
+        mapSprites = GifManager.importGif(basepath);
+        tiles = new Tile[mapSprites.length*18];
+        for(int i=0;i<mapSprites.length;i++){
+            System.arraycopy(mapSprites[i].getTiles(), 0, tiles, i*18, 18);
+        }
+        graphicsManager.setTiles(tiles);
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.importGif() - GIF imported.");
+    }
+    
+    public void exportGif(String basepath){
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.exportGif() - Exporting GIF ...");
+        GifManager.exportGif(mapSprites, basepath);
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.exportGif() - GIF exported.");       
     }
 }

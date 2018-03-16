@@ -483,6 +483,94 @@
                                     </Component>
                                   </SubComponents>
                                 </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel6">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="GIF">
+                                        <Property name="tabTitle" type="java.lang.String" value="GIF"/>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jTextField12" pref="264" max="32767" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jButton19" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                                      <Component id="jLabel4" max="32767" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jButton16" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jButton19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jButton16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel12">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="GIF File :"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="jTextField12">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value=".\u005c" containsInvalidXMLChars="true"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField12ActionPerformed"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton19">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="File..."/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton19ActionPerformed"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel4">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Select a directory with &quot;mapspriteXXX-Y.gif&quot; files.&lt;br&gt;Required GIF Format : 4BPP / 16 indexed colors.&lt;br&gt;Transparent color at index 0.&lt;/html&gt;"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton16">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="Import"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton16ActionPerformed"/>
+                                      </Events>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
                               </SubComponents>
                             </Container>
                           </SubComponents>
@@ -691,6 +779,93 @@
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="&lt;html&gt;Select a directory to create new &quot;mapspriteXXX-Y.png&quot; files.&lt;br&gt;Exported PNG Format : 4BPP / 16 indexed colors.&lt;br&gt;Transparent color at index 0.&lt;/html&gt;"/>
                                       </Properties>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel12">
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                                      <JTabbedPaneConstraints tabName="GIF">
+                                        <Property name="tabTitle" type="java.lang.String" value="GIF"/>
+                                      </JTabbedPaneConstraints>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout>
+                                    <DimensionLayout dim="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jTextField16" pref="264" max="32767" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jButton28" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="jLabel13" max="32767" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="jButton21" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                    <DimensionLayout dim="1">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jButton28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jButton21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                    </DimensionLayout>
+                                  </Layout>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel16">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="GIF File :"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JTextField" name="jTextField16">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value=".\u005c" containsInvalidXMLChars="true"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField16ActionPerformed"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton28">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="File..."/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton28ActionPerformed"/>
+                                      </Events>
+                                    </Component>
+                                    <Component class="javax.swing.JLabel" name="jLabel13">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="&lt;html&gt;Select a directory to create new &quot;mapspriteXXX-Y.gif&quot; files.&lt;br&gt;Exported GIF Format : 4BPP / 16 indexed colors.&lt;br&gt;Transparent color at index 0.&lt;/html&gt;"/>
+                                      </Properties>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton21">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="Export"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton21ActionPerformed"/>
+                                      </Events>
                                     </Component>
                                   </SubComponents>
                                 </Container>
