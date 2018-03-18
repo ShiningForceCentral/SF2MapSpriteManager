@@ -205,7 +205,7 @@ public class MainEditor extends javax.swing.JFrame {
 
         jLabel8.setText("Palette file :");
 
-        jTextField8.setText("..\\tech\\displayinitpalette.bin");
+        jTextField8.setText("..\\tech\\basepalette.bin");
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
