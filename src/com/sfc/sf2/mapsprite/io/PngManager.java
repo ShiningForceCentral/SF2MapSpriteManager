@@ -31,16 +31,17 @@ import javax.imageio.ImageIO;
  */
 public class PngManager {
     
-    private static final String BASE_FILENAME = "mapspriteXXX-Y.png";
+    private static final String BASE_FILENAME = "mapspriteXXX-Y-Z.png";
     
     public static MapSprite[] importPng(String basepath){
         System.out.println("com.sfc.sf2.mapsprite.io.PngManager.importPng() - Importing PNG files ...");
         List<MapSprite> mapSprites = new ArrayList();
         try{
             for(int i=0;i<1000;i++){
-                String index = String.format("%03d", i);
-                String filePath0 = basepath + BASE_FILENAME.replace("XXX-Y.png", index+"-0.png");
-                String filePath1 = basepath + BASE_FILENAME.replace("XXX-Y.png", index+"-1.png");
+                String index = String.format("%03d", i/3);
+                int facing = i%3;
+                String filePath0 = basepath + BASE_FILENAME.replace("XXX-Y-Z.png", index+"-"+facing+"-0.png");
+                String filePath1 = basepath + BASE_FILENAME.replace("XXX-Y-Z.png", index+"-"+facing+"-1.png");
                 Tile[] tiles0 = loadPngFile(filePath0);
                 Tile[] tiles1 = loadPngFile(filePath1);
                 if(tiles0!=null && tiles1!=null){
@@ -141,10 +142,11 @@ public class PngManager {
         try {
             //System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - Exporting PNG files ...");
             for(MapSprite mapSprite : mapSprites){
-                String index = String.format("%03d", mapSprite.getIndex());
-                String filePath0 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y.png", index+"-0.png");
+                String index = String.format("%03d", mapSprite.getIndex()/3);
+                int facing = mapSprite.getIndex()%3;
+                String filePath0 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y-Z.png", index+"-"+facing+"-0.png");
                 writePngFile(Arrays.copyOfRange(mapSprite.getTiles(), 0, 9),filePath0);
-                String filePath1 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y.png", index+"-1.png");
+                String filePath1 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y-Z.png", index+"-"+facing+"-1.png");
                 writePngFile(Arrays.copyOfRange(mapSprite.getTiles(), 9, 18),filePath1);                
             }
             //System.out.println("com.sfc.sf2.mapsprite.io.PngManager.exportPng() - PNG files exported.");

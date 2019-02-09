@@ -40,10 +40,30 @@ public class MapSpriteManager {
         mapSprites = DisassemblyManager.importDisassembly(graphicsBasepath, palette);
         tiles = new Tile[mapSprites.length*18];
         for(int i=0;i<mapSprites.length;i++){
-            System.arraycopy(mapSprites[i].getTiles(), 0, tiles, i*18, 18);
+                    System.arraycopy(mapSprites[i].getTiles(), 0, tiles, i*18, 18);
         }
         graphicsManager.setTiles(tiles);
         System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.importDisassembly() - Disassembly imported.");
+    }
+       
+    public MapSprite[] importDisassemblyFromEntryFile(String paletteFilePath, String entriesPath, String basePath){
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.importDisassemblyFromEntryFile() - Importing disassembly from entry file ...");
+        paletteManager.importDisassembly(paletteFilePath);
+        Color[] palette = paletteManager.getPalette();
+        palette[0] = new Color(255, 255, 255, 0);
+        mapSprites = DisassemblyManager.importDisassemblyFromEntryFile(basePath, entriesPath, palette);
+        tiles = new Tile[mapSprites.length*18];
+        for(int i=0;i<mapSprites.length;i++){
+            if(mapSprites[i]!=null&&mapSprites[i].getTiles()!=null){
+                try{
+                    System.arraycopy(mapSprites[i].getTiles(), 0, tiles, i*18, 18);
+                }catch(Exception e){
+                    System.out.println(i);
+                }
+            }            
+        }
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.importDisassemblyFromEntryFile() - Disassembly from entry file imported.");
+        return mapSprites;
     }
     
     public void exportDisassembly(String basepath){

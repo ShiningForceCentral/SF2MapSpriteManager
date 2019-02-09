@@ -12,6 +12,7 @@ import com.sfc.sf2.mapsprite.layout.MapSpriteLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.PrintStream;
 import java.util.logging.ConsoleHandler;
@@ -94,6 +95,9 @@ public class MainEditor extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jButton15 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jButton29 = new javax.swing.JButton();
+        jTextField17 = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
@@ -121,17 +125,18 @@ public class MainEditor extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jButton28 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
 
         jFileChooser2.setFileSelectionMode(javax.swing.JFileChooser.DIRECTORIES_ONLY);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SF2MapSpriteManager");
 
+        jSplitPane1.setDividerLocation(400);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         jSplitPane1.setOneTouchExpandable(true);
 
@@ -154,11 +159,12 @@ public class MainEditor extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
         );
 
         jSplitPane1.setBottomComponent(jPanel7);
 
+        jSplitPane2.setDividerLocation(600);
         jSplitPane2.setOneTouchExpandable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tiles"));
@@ -180,11 +186,11 @@ public class MainEditor extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -228,19 +234,35 @@ public class MainEditor extends javax.swing.JFrame {
 
         jLabel2.setText("<html>Select a directory with \"mapspriteXXX.bin\" files.<br/>Typical disassembly path : data/graphics/mapsprites/</html>");
 
-        jTextField9.setText(".\\");
-            jTextField9.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jTextField9ActionPerformed(evt);
-                }
-            });
+        jTextField9.setText(".\\entries.asm");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
 
-            jLabel10.setText("Directory :");
+        jLabel10.setText("Entry file :");
 
-            jButton15.setText("File...");
-            jButton15.addActionListener(new java.awt.event.ActionListener() {
+        jButton15.setText("File...");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Incbin base path :");
+
+        jButton29.setText("File...");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
+
+        jTextField17.setText("..\\..\\..\\");
+            jTextField17.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    jButton15ActionPerformed(evt);
+                    jTextField17ActionPerformed(evt);
                 }
             });
 
@@ -254,19 +276,25 @@ public class MainEditor extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                             .addComponent(jLabel8)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton14))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                             .addComponent(jLabel10)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton15))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton18)))
+                            .addComponent(jButton18))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                            .addComponent(jLabel16)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField17, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton29)))
                     .addContainerGap())
             );
             jPanel4Layout.setVerticalGroup(
@@ -282,12 +310,15 @@ public class MainEditor extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addComponent(jButton15))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(37, 37, 37))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(jButton29)
+                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(47, 47, 47)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                         .addComponent(jButton18))
-                    .addGap(48, 48, 48))
+                    .addContainerGap())
             );
 
             jTabbedPane1.addTab("Disassembly", jPanel4);
@@ -315,7 +346,7 @@ public class MainEditor extends javax.swing.JFrame {
                     }
                 });
 
-                jLabel3.setText("<html>Select a directory with \"mapspriteXXX-Y.png\" files.<br>Required PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
+                jLabel3.setText("<html>Select a directory with \"mapspriteXXX-Y-Z.png\" files.<br>Required PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
 
                 javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
                 jPanel9.setLayout(jPanel9Layout);
@@ -327,7 +358,7 @@ public class MainEditor extends javax.swing.JFrame {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                                .addComponent(jTextField11, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton17))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
@@ -369,7 +400,7 @@ public class MainEditor extends javax.swing.JFrame {
                         }
                     });
 
-                    jLabel4.setText("<html>Select a directory with \"mapspriteXXX-Y.gif\" files.<br>Required GIF Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
+                    jLabel4.setText("<html>Select a directory with \"mapspriteXXX-Y-Z.gif\" files.<br>Required GIF Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
 
                     jButton16.setText("Import");
                     jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -425,7 +456,7 @@ public class MainEditor extends javax.swing.JFrame {
                     );
                     jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane1)
                     );
 
                     jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Export to :"));
@@ -466,11 +497,11 @@ public class MainEditor extends javax.swing.JFrame {
                                     .addGroup(jPanel11Layout.createSequentialGroup()
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                                        .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                                         .addGap(10, 10, 10)
                                         .addComponent(jButton20))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton2)))
                                 .addContainerGap())
@@ -486,7 +517,7 @@ public class MainEditor extends javax.swing.JFrame {
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton2)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(31, Short.MAX_VALUE))
+                                .addContainerGap(33, Short.MAX_VALUE))
                         );
 
                         jTabbedPane2.addTab("Disassembly", jPanel11);
@@ -514,7 +545,7 @@ public class MainEditor extends javax.swing.JFrame {
                                 }
                             });
 
-                            jLabel9.setText("<html>Select a directory to create new \"mapspriteXXX-Y.png\" files.<br>Exported PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
+                            jLabel9.setText("<html>Select a directory to create new \"mapspriteXXX-Y-Z.png\" files.<br>Exported PNG Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
 
                             javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
                             jPanel14.setLayout(jPanel14Layout);
@@ -526,7 +557,7 @@ public class MainEditor extends javax.swing.JFrame {
                                         .addGroup(jPanel14Layout.createSequentialGroup()
                                             .addComponent(jLabel15)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                                            .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jButton27))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
@@ -551,7 +582,7 @@ public class MainEditor extends javax.swing.JFrame {
 
                             jTabbedPane2.addTab("PNG", jPanel14);
 
-                            jLabel16.setText("GIF File :");
+                            jLabel17.setText("GIF File :");
 
                             jTextField16.setText(".\\");
                                 jTextField16.addActionListener(new java.awt.event.ActionListener() {
@@ -567,10 +598,10 @@ public class MainEditor extends javax.swing.JFrame {
                                     }
                                 });
 
-                                jLabel13.setText("<html>Select a directory to create new \"mapspriteXXX-Y.gif\" files.<br>Exported GIF Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
+                                jLabel13.setText("<html>Select a directory to create new \"mapspriteXXX-Y-Z.gif\" files.<br>Exported GIF Format : 4BPP / 16 indexed colors.<br>Transparent color at index 0.</html>");
 
-                                jButton21.setText("Export");
-                                jButton21.addActionListener(new java.awt.event.ActionListener() {
+                                jButton22.setText("Export");
+                                jButton22.addActionListener(new java.awt.event.ActionListener() {
                                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                                         jButton21ActionPerformed(evt);
                                     }
@@ -584,29 +615,29 @@ public class MainEditor extends javax.swing.JFrame {
                                         .addContainerGap()
                                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel12Layout.createSequentialGroup()
-                                                .addComponent(jLabel16)
+                                                .addComponent(jLabel17)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                                .addComponent(jTextField16)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jButton28))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                                                .addComponent(jLabel13)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jButton21)))
+                                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                                                .addComponent(jButton22)))
                                         .addContainerGap())
                                 );
                                 jPanel12Layout.setVerticalGroup(
                                     jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel12Layout.createSequentialGroup()
                                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jButton28)
                                             .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel16)
-                                            .addComponent(jButton28))
+                                            .addComponent(jLabel17))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton21)
+                                            .addComponent(jButton22)
                                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(37, 37, 37))
                                 );
 
                                 jTabbedPane2.addTab("GIF", jPanel12);
@@ -617,7 +648,7 @@ public class MainEditor extends javax.swing.JFrame {
                                     jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                         .addContainerGap()
-                                        .addComponent(jTabbedPane2)
+                                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addContainerGap())
                                 );
                                 jPanel5Layout.setVerticalGroup(
@@ -629,14 +660,14 @@ public class MainEditor extends javax.swing.JFrame {
                                 jPanel8.setLayout(jPanel8Layout);
                                 jPanel8Layout.setHorizontalGroup(
                                     jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
                                 );
                                 jPanel8Layout.setVerticalGroup(
                                     jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addContainerGap())
                                 );
@@ -651,7 +682,7 @@ public class MainEditor extends javax.swing.JFrame {
                                 );
                                 jPanel15Layout.setVerticalGroup(
                                     jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSplitPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, Short.MAX_VALUE)
+                                    .addComponent(jSplitPane2)
                                 );
 
                                 jSplitPane1.setLeftComponent(jPanel15);
@@ -728,7 +759,7 @@ public class MainEditor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        mapSpriteManager.importDisassembly(jTextField8.getText(),jTextField9.getText());
+        mapSpriteManager.importDisassemblyFromEntryFile(jTextField8.getText(),jTextField9.getText(),jTextField17.getText());
         jPanel2.removeAll();
         Tile[] tiles = mapSpriteManager.getTiles();        
         jPanel2.setLayout(new GridLayout(1,1));
@@ -817,6 +848,18 @@ public class MainEditor extends javax.swing.JFrame {
         mapSpriteManager.exportGif(jTextField16.getText());
     }//GEN-LAST:event_jButton21ActionPerformed
 
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        int returnVal = jFileChooser2.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = jFileChooser2.getSelectedFile();
+            jTextField17.setText(file.getAbsolutePath()+System.getProperty("file.separator"));
+        }
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -869,9 +912,10 @@ public class MainEditor extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFileChooser jFileChooser2;
     private javax.swing.JLabel jLabel1;
@@ -882,6 +926,7 @@ public class MainEditor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -914,6 +959,7 @@ public class MainEditor extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables

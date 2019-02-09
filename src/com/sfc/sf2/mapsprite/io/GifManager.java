@@ -31,16 +31,17 @@ import javax.imageio.ImageIO;
  */
 public class GifManager {
     
-    private static final String BASE_FILENAME = "mapspriteXXX-Y.gif";
+    private static final String BASE_FILENAME = "mapspriteXXX-Y-Z.gif";
     
     public static MapSprite[] importGif(String basepath){
         System.out.println("com.sfc.sf2.mapsprite.io.GifManager.importGif() - Importing GIF files ...");
         List<MapSprite> mapSprites = new ArrayList();
         try{
             for(int i=0;i<1000;i++){
-                String index = String.format("%03d", i);
-                String filePath0 = basepath + BASE_FILENAME.replace("XXX-Y.gif", index+"-0.gif");
-                String filePath1 = basepath + BASE_FILENAME.replace("XXX-Y.gif", index+"-1.gif");
+                String index = String.format("%03d", i/3);
+                int facing = i%3;
+                String filePath0 = basepath + BASE_FILENAME.replace("XXX-Y-Z.gif", index+"-"+facing+"-0.gif");
+                String filePath1 = basepath + BASE_FILENAME.replace("XXX-Y-Z.gif", index+"-"+facing+"-1.gif");
                 Tile[] tiles0 = loadGifFile(filePath0);
                 Tile[] tiles1 = loadGifFile(filePath1);
                 if(tiles0!=null && tiles1!=null){
@@ -141,10 +142,11 @@ public class GifManager {
         try {
             //System.out.println("com.sfc.sf2.mapsprite.io.GifManager.exportGif() - Exporting GIF files ...");
             for(MapSprite mapSprite : mapSprites){
-                String index = String.format("%03d", mapSprite.getIndex());
-                String filePath0 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y.gif", index+"-0.gif");
+                String index = String.format("%03d", mapSprite.getIndex()/3);
+                int facing = mapSprite.getIndex()%3;
+                String filePath0 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y-Z.gif", index+"-"+facing+"-0.gif");
                 writeGifFile(Arrays.copyOfRange(mapSprite.getTiles(), 0, 9),filePath0);
-                String filePath1 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y.gif", index+"-1.gif");
+                String filePath1 = basepath + System.getProperty("file.separator") + BASE_FILENAME.replace("XXX-Y-Z.gif", index+"-"+facing+"-1.gif");
                 writeGifFile(Arrays.copyOfRange(mapSprite.getTiles(), 9, 18),filePath1);                
             }
             //System.out.println("com.sfc.sf2.mapsprite.io.GifManager.exportGif() - GIF files exported.");
