@@ -10,6 +10,7 @@ import com.sfc.sf2.graphics.Tile;
 import com.sfc.sf2.mapsprite.io.DisassemblyManager;
 import com.sfc.sf2.mapsprite.io.PngManager;
 import com.sfc.sf2.mapsprite.io.GifManager;
+import com.sfc.sf2.mapsprite.io.SFCDBankManager;
 import com.sfc.sf2.palette.PaletteManager;
 import java.awt.Color;
 
@@ -117,5 +118,20 @@ public class MapSpriteManager {
         System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.exportGif() - Exporting GIF ...");
         GifManager.exportGif(mapSprites, basepath);
         System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.exportGif() - GIF exported.");       
+    }
+    
+       
+    public void importSFCDBank(String paletteFilePath, String bankFilePath, String fileLoadingOffset, String pointerTableOffset, String numberOfEntries){
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.importSFCDBank() - Importing SFCD Bank ...");
+        paletteManager.importDisassembly(paletteFilePath);
+        Color[] palette = paletteManager.getPalette();
+        palette[0] = new Color(255, 255, 255, 0);
+        mapSprites = SFCDBankManager.importSFCDBank(bankFilePath, palette, fileLoadingOffset, pointerTableOffset, numberOfEntries);
+        tiles = new Tile[mapSprites.length*18];
+        for(int i=0;i<mapSprites.length;i++){
+                    System.arraycopy(mapSprites[i].getTiles(), 0, tiles, i*18, 18);
+        }
+        graphicsManager.setTiles(tiles);
+        System.out.println("com.sfc.sf2.mapsprite.MapSpriteManager.importSFCDBank() - SFCD Bank imported.");
     }
 }
